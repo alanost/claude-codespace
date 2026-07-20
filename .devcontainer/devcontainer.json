@@ -1,0 +1,26 @@
+{
+    "name": "claude-codespace",
+    "image": "mcr.microsoft.com/devcontainers/python:3",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        },
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "wilmarj.fleety",
+                "pkief.material-icon-theme",
+                "tomoki1207.pdf",
+                "anthropic.claude-code",
+                "ms-python.python",
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    },
+    "remoteUser": "vscode",
+    "postCreateCommand": "printf '#!/usr/bin/env bash\\nexec claude --dangerously-skip-permissions \"$@\"\\n' | sudo tee /usr/local/bin/yolo > /dev/null && sudo chmod +x /usr/local/bin/yolo"
+}
